@@ -11,8 +11,8 @@ const MoviesList = ({ sort, onSort, raiseSort, movies, onClick }) => {
     }
 
     return <div className='w-full'>
-        <table className='w-full h-1/2 overflow-hidden'>
-            <thead>
+        <table className='w-full h-[50vh] overflow-y-scroll w-full inline-block'>
+            <thead className='w-full'>
                 <tr>
                     <th className="px-8 pb-4 cursor-pointer text-left font-normal" onClick={() => raiseSort('title')}><span className="inline">Title</span> <MdOutlineKeyboardArrowDown className="inline" /></th>
                     <th className="px-8 pb-4 cursor-pointer text-left font-normal" onClick={() => raiseSort('genre.name')}><span className="inline">Genre</span> <MdOutlineKeyboardArrowDown className="inline" /></th>
@@ -21,7 +21,7 @@ const MoviesList = ({ sort, onSort, raiseSort, movies, onClick }) => {
                     <th className="px-8 pb-4"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className='w-full'>
                 {movies.map(movie =>
                     <tr className="hover:bg-[#eaeaea]" key={movie.id}>
                         <td className="px-8 py-4 rounded-l-xl">{movie.title}</td>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import Heading from "./heading"
-import Button from "./button"
-import Input from "./input"
+import Heading from "./common/heading"
+import Button from "./common/button"
+import Input from "./common/input"
 import { updateMovies } from "../moviesData"
 import Link from "next/link"
 
