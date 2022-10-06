@@ -1,4 +1,4 @@
-import Outline from "../../components/outline";
+import Outline from "../../components/common/outline";
 import Form from "../../components/form";
 
 const New = () => {
