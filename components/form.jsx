@@ -3,7 +3,7 @@ import Heading from "./common/heading"
 import Button from "./common/button"
 import { updateMovies } from "./moviesData"
 import Link from "next/link"
-import { Input } from "./common/input"
+import CustomInput from "./common/customInput"
 
 const Form = () => {
     const [data, setData] = useState({
@@ -25,10 +25,10 @@ const Form = () => {
         <Heading heading='Add Movie +' />
         <form action="" onSubmit={handleSubmit} className="mt-2">
             <div  className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <Input id='title' title='Title' type='text' onChange={handleChange} value={data.newMovie.title} />
-                <Input id='genre' title='Genre' type='text' onChange={handleChange} value={data.newMovie.genre} />
-                <Input id='rating' title='IMDb Rating' type='text' onChange={handleChange} value={data.newMovie.rating} />
-                <Input id='release' title='Release Date' type='text' onChange={handleChange} value={data.newMovie.release} />
+                <CustomInput id='title' title='Title' type='text' onChange={handleChange} value={data.newMovie.title} />
+                <CustomInput id='genre' title='Genre' type='text' onChange={handleChange} value={data.newMovie.genre} />
+                <CustomInput id='rating' title='IMDb Rating' type='text' onChange={handleChange} value={data.newMovie.rating} />
+                <CustomInput id='release' title='Release Date' type='text' onChange={handleChange} value={data.newMovie.release} />
             </div>
             <Button name={<Link href="/">Add</Link>} type="submit" />
         </form>
