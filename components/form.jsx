@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 import Heading from "./common/heading"
 import Button from "./common/button"
-import Input from "./common/input"
-import { updateMovies } from "../moviesData"
+import { updateMovies } from "./moviesData"
 import Link from "next/link"
+import { Input } from "./common/input"
 
 const Form = () => {
     const [data, setData] = useState({

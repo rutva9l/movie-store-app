@@ -19,7 +19,9 @@ a {
 }
 
 .filter-active{
-  border-bottom: 2px solid #060606;
+  border-bottom: 1.5px solid #060606;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: #eaeaea;
 }
 
 /* @media (prefers-color-scheme: dark) {

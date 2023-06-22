@@ -6,30 +6,16 @@ import Button from './common/button'
 import Link from "next/link";
 import _ from 'lodash';
 
-const Movies = () => {
-    const [initMovies, setInitMovies] = useState([]);
-    const [initGenres, setInitGenres] = useState([]);
+const Movies = ({ data }) => {
+    console.log(data)
+    const [initMovies, setInitMovies] = useState(data.movies);
+    const [initGenres, setInitGenres] = useState(data.genres);
     const [initData, setInitData] = useState({
         current: 1,
         filter: 'All genres',
         sort: { col: 'title', order: 'asc' },
         search: ""
     })
-
-    useEffect(() => {
-        fetch('https://834pfe1p.directus.app/items/movies', { method: 'GET' })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.data)
-                setInitMovies(data.data)
-            });
-        fetch('https://834pfe1p.directus.app/items/Genres', { method: 'GET' })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.data)
-                setInitGenres(data.data)
-            });
-    }, [])
 
     const handleChange = current => {
         setInitData({ ...initData, current });
@@ -48,7 +34,7 @@ const Movies = () => {
         setInitData({ ...initData, search: value });
     }
 
-    const {current, sort, search, filter } = initData;
+    const { current, sort, search, filter } = initData;
     let searched = [];
 
     initMovies.map(movie => {
@@ -61,7 +47,7 @@ const Movies = () => {
     const filtered = filter === 'All genres' ? searched : searched.filter(m => m.genre === filter);
     const movies = _.orderBy(filtered, [sort.col], [sort.order]);
 
-    return <div className="bg-gray-100 p-2 rounded-md">
+    return <>
         <Heading heading='Movies' />
         <div className="flex justify-between items-center">
             <span>There are {initMovies.length} movies in the database. Currently showing {filtered.length} items.</span>
@@ -74,7 +60,7 @@ const Movies = () => {
         <div className="mt-4">
             <MoviesList movies={movies} onClick={handleClick} onSort={handleSort} sort={sort} onSearch={handleSearch} />
         </div>
-    </div>
+    </>
 }
 
 export default Movies

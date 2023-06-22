@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {RiMovie2Line} from 'react-icons/ri'
 
 const Navbar = () => {
     return <nav className="bg-[#060606] w-1/5 h-full p-4">
